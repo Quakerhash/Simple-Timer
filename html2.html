@@ -27,6 +27,11 @@ button:hover{
 button:active{
     color: grey;
 }
+.ra{
+    width: 90px;
+    border-radius: 45px;
+    margin-left: 5px;
+}
 </style>
 <script>
 let c=0;
@@ -73,6 +78,12 @@ function reset(){
     check=0;
     document.getElementById("s").innerHTML="0:00";
 }
+function random(){
+    p1=Math.floor(Math.random()*255);
+    p2=Math.floor(Math.random()*255);
+    p3=Math.floor(Math.random()*255);
+    document.body.style.backgroundColor=`rgb(${p1},${p2},${p3})`;
+}
 
 </script>
 </head>
@@ -82,5 +93,6 @@ function reset(){
 <button id="sa" onclick="start()">Start</button>
 <button class="st" onclick="stop()">Stop</button>
 <button class="re" onclick="reset()">Reset</button>
+<button class="ra" onclick="random()">Randomiser</button>
 </body>
 </html>

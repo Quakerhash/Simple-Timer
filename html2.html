@@ -1,0 +1,86 @@
+<html>
+<head>
+<style>
+#s{
+    margin: 0px 0px 0px 95px;
+}
+button{
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    width: 70px;
+    height: 25px;
+    transition: box-shadow 0.2s;
+}
+#sa{
+    margin-right: 7px;
+}
+.re{
+    margin-left: 5px;
+}
+button:hover{
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+button:active{
+    color: grey;
+}
+</style>
+<script>
+let c=0;
+let k=0;
+let check=0;
+function start(){
+check++;
+document.getElementById("sa").innerHTML="Start";
+if(check<2){
+m=setInterval(()=>{
+c++;
+if(c<10){
+     document.getElementById("s").innerHTML=k+":0"+c;
+}
+else if(c>59){
+    k++;
+    c=0;
+    document.getElementById("s").innerHTML=k+":"+c;
+}
+else{
+    document.getElementById("s").innerHTML=k + ":"+ c;
+}
+    
+},1000)
+}
+}
+function stop(){
+    clearInterval(m);
+    document.getElementById("sa").innerHTML="Resume";
+    if(c<10){
+     document.getElementById("s").innerHTML=k+":0"+c;
+     check=0;
+}
+else{
+     document.getElementById("s").innerHTML=k+":"+c;
+check=0;
+}    
+}
+function reset(){
+    document.getElementById("sa").innerHTML="Start";
+    clearInterval(m);
+    c=0;
+    k=0;
+    check=0;
+    document.getElementById("s").innerHTML="0:00";
+}
+
+</script>
+</head>
+<body>
+<span id="s">0:00</span>
+<br>
+<button id="sa" onclick="start()">Start</button>
+<button class="st" onclick="stop()">Stop</button>
+<button class="re" onclick="reset()">Reset</button>
+</body>
+</html>
